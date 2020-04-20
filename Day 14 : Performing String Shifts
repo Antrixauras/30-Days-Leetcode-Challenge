@@ -1,0 +1,19 @@
+class Solution {
+public:
+    void leftshift(string &s,int d) {
+        reverse(s.begin(),s.begin()+d);
+        reverse(s.begin()+d,s.end());
+        reverse(s.begin(),s.end());
+    }
+    string stringShift(string s, vector<vector<int>>& shift) {
+        int n=shift.size();
+        for(int i=0;i<n;i++)
+        {
+            if(shift[i][0]==0)
+                leftshift(s,shift[i][1]);
+            else
+                leftshift(s,s.length()-shift[i][1]);
+        }
+        return s;
+    }
+};
